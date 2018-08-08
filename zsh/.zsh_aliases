@@ -1,0 +1,36 @@
+#          ___                     
+#   ____ _/ (_)___ _________  _____
+#  / __ `/ / / __ `/ ___/ _ \/ ___/
+# / /_/ / / / /_/ (__  )  __(__  ) 
+# \__,_/_/_/\__,_/____/\___/____/  
+#                                  
+
+#---[general]-------------------------------------------------------------------
+alias ls="ls --color=auto"
+alias l="ls -lah"
+alias grep="grep --color=auto"
+
+#---[PATH]----------------------------------------------------------------------
+alias path='printf "${PATH//:/\\n}\n"'
+
+#---[system]--------------------------------------------------------------------
+alias shutdown="shutdown -h now"
+alias reflector="sudo reflector --verbose \
+                                --protocol https \
+                                --latest 200 \
+                                --sort rate \
+                                --save /etc/pacman.d/mirrorlist"
+alias pkg-list="comm -23 <(pacaur -Qqt | sort) \
+                         <(pacaur -Sqg base base-devel | sort) \
+                         > pkgs.lst"
+
+#---[tmux]----------------------------------------------------------------------
+alias tmuxk="tmux kill-session -t"
+alias tmuxl="tmux list-session -F #S"
+alias tmuxn="tmuxd -n"
+alias tmuxa="tmuxd -a"
+
+#---[applications]--------------------------------------------------------------
+alias glances="glances --disable-bg"
+alias dia="dia --integrated"
+alias firepox="firefox --private-window"

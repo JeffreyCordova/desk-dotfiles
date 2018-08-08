@@ -1,0 +1,43 @@
+#!/bin/sh
+printhelp() {
+  ecode="${1:-0}"
+  cat - <<EOF
+SYNOPSIS:
+  $(basename $0) -h
+  $(basename $0) INTERPRETER FILE
+OPTIONS:
+  -h    show this help
+EOF
+  exit "$ecode"
+}
+
+while getopts "h" opt; do
+  case $opt in
+    h)
+      printhelp
+      ;;
+    *)
+      printhelp 1 >&2
+      ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+interpreter=$1
+file=$2
+
+[ -z "$interpreter" ] && printhelp 1 >&2
+[ -z "$file" ] && printhelp 1 >&2
+
+if [ -e "$file" ]; then
+  printf "%s exists\n" "$file" >&2
+  exit 1
+fi
+
+if [ "$interpreter" = "sh" ]; then
+  echo "#!/bin/sh" > "$file"
+else
+  echo "#!/usr/bin/env $interpreter" > "$file"
+fi
+
+chmod +x "$file"

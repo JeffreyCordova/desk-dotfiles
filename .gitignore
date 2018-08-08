@@ -1,0 +1,24 @@
+pkgs.lst
+
+nvim/.config/nvim/autoload
+nvim/.config/nvim/plugged
+
+termite/.local/share/applications/
+
+vscode/.config/Code/Backups
+vscode/.config/Code/Cache
+vscode/.config/Code/CachedData
+vscode/.config/Code/CachedExtensions
+vscode/.config/Code/Cookies
+vscode/.config/Code/Cookies-journal
+vscode/.config/Code/GPUCache
+vscode/.config/Code/languagepacks.json
+vscode/.config/Code/Local\ Storage
+vscode/.config/Code/Preferences
+vscode/.config/Code/logs
+vscode/.config/Code/machineid
+vscode/.config/Code/storage.json
+
+xmonad/.xmonad/xmonad-x86_64-linux
+xmonad/.xmonad/xmonad.hi
+xmonad/.xmonad/xmonad.o
